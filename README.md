@@ -1,3 +1,6 @@
+# Presentation: 
+https://goo.gl/upGYVB
+
 # Try to do it as general as possible:
 
 1) Create class-container for any types;
