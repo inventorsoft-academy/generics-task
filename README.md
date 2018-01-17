@@ -9,3 +9,4 @@ https://goo.gl/upGYVB
 4) Create utility method, which takes two lists and index and replaces element at given position in the first collection with corresponding element from the second one, without possibility to do vice versa;
 5) Create utility method, which takes two lists and index and switches elements at given position;
 6) Create utility method, which finds maximum element in the given list.
+ 
