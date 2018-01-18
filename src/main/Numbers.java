@@ -13,7 +13,7 @@ public class Numbers<T extends Number> {
     public int countEvenNumbers() {
         int counter = 0;
         for (T number : numbersList) {
-            if (Math.abs(number.intValue()) % 2 == 0) {
+            if (number.doubleValue() % 2 == 0) {
                 counter++;
             }
         }
@@ -24,7 +24,8 @@ public class Numbers<T extends Number> {
      * This method sets list 1's element with an index corresponding to index parameter
      * to a value of an element of list 2 with the same index preventing the reverse operation.
      * */
-    public void setValue(List<T> list1, final List<T> list2, int index) {
+    public void setValue(List<T> list1, List<T> list2, int index) {
+        list2 = Collections.unmodifiableList(list2);
         list1.set(index, list2.get(index));
     }
 
@@ -34,7 +35,7 @@ public class Numbers<T extends Number> {
         list2.set(index, value);
     }
 
-    public Comparable getMaximumValue(List list) {
+    public Comparable getMaximumValue(List<? extends Comparable> list) {
         return Collections.max(list);
     }
 }
