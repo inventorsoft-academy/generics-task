@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Test {
@@ -33,5 +35,15 @@ public class Test {
 
         //maximum element
         System.out.println(num.maximumElement(list1));
+
+        class Person implements Comparable {
+
+            @Override
+            public int compareTo(Object o) {
+                return 0;
+            }
+        }
+        new Num<>(Collections.emptyList()).maximumElement(Arrays.asList(new Person(), new Person()));
+
     }
 }

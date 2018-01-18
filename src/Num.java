@@ -1,5 +1,6 @@
 //class-container for numbers
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class Num <T extends Number> {
     // at given position in the first collection with corresponding
     // element from the second one, without possibility to do vice versa
 
-    public void replaceList(List<T> list1, List<T> list2, int index){
+    public void replaceList(List<? super T> list1, List<? extends T> list2, int index){
         list1.set(index, list2.get(index));
     }
 
@@ -45,7 +46,7 @@ public class Num <T extends Number> {
     }
 
     //utility method, which finds maximum element in the given list.
-    public Comparable maximumElement(List list){
+    public <T extends Comparable<? super T>> T maximumElement(Collection<T> list){
         return Collections.max(list);
     }
 }
