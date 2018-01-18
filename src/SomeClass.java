@@ -6,10 +6,11 @@ public class SomeClass {
     public static <T extends Number> void evenNumberCount(List<T> numbers){
         int evenNumbers = 0;
         for (T num : numbers) {
-            if (num instanceof Integer && num.intValue() % 2 == 0){
+            if (num.doubleValue() % 2 == 0){
                 evenNumbers++;
             }
         }
+        System.out.println(evenNumbers);
     }
 
     public static <T> void replaceElement(List<? super T> firstList, List<? extends T> secondList, int index){
@@ -36,9 +37,6 @@ public class SomeClass {
 
     public static void main(String[] args) {
 
-        List<Number> a = Arrays.asList(1,2,1,2,5);
-        List<Integer> b = Arrays.asList(10,9,8,97,6);
-
-        SomeClass.replaceElement(a,b,2);
+        SomeClass.evenNumberCount(Arrays.asList(2.22f, 2.1, 8.0, 4, 1));
     }
 }
