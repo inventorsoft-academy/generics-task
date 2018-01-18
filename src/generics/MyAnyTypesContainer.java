@@ -11,5 +11,7 @@ public class MyAnyTypesContainer<T> {
         return type;
     }
 
-
+    public void setType(T type) {
+        this.type = type;
+    }
 }

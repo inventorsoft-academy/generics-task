@@ -10,7 +10,7 @@ public class Starter {
 
 
     public static void main(String[] args) {
-        System.out.println("Finish task3");
+
     }
 
     public static <T> int countEven(List<? extends Number> list){
@@ -21,8 +21,10 @@ public class Starter {
         return result;
     }
 
-    public static <T> void swapListElement(List<T> list1, List<T> list2, int i){
+    public static <T> void swapListElement(List<? super T > list1, List<T> list2, int i){
         list1.set(i, list2.get(i));
+
+
     }
 
     public static <T> void switchListElement(List<T> list1, List<T> list2, int i ){
@@ -31,9 +33,8 @@ public class Starter {
         list2.set(i, temp);
     }
 
-    public static <T> T maxElement(List<T> list){
-        TreeSet<T> set = new TreeSet<>(list);
-        return set.last();
+    public static  Comparable maxElement(List<? extends Comparable>  list){
+        return Collections.max(list);
     }
 
 }
