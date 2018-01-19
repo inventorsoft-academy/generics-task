@@ -11,7 +11,7 @@ public class Util {
 	public int countEvenNumbers(List<? extends Number> list){
 		int count = 0;
 		for (Number number: list) {
-			if(number.intValue() % 2 == 0)
+			if(number.doubleValue() % 2 == 0)
 				count++;
 		}
 		return count;
@@ -22,7 +22,7 @@ public class Util {
 	 * in the first collection with corresponding element from the second one,
 	 * without possibility to do vice versa;
 	 */
-	public void replaceElement(List list1, List list2, int index){
+	public <T> void replaceElement(List<T> list1, List<T> list2, int index){
 		list1.set(index, list2.get(index));
 	}
 
@@ -32,8 +32,8 @@ public class Util {
 	 * @param list2 second list
 	 * @param index index of element to switch
 	 */
-	public void switchElements(List list1, List list2, int index){
-		Object o1 = list1.get(index);
+	public <T> void switchElements(List<T> list1, List<T> list2, int index){
+		T o1 = list1.get(index);
 		list1.set(index, list2.get(index));
 		list2.set(index,o1);
 	}
@@ -43,10 +43,10 @@ public class Util {
 	 * @param list
 	 * @return maximum element of list
 	 */
-	public Number findMax(List<? extends Number> list){
-		Number max = list.get(0);
+	public <T extends Comparable<T>> T findMax(List<T> list){
+		T max = list.get(0);
 		for(int i=1; i<list.size()-1; i++){
-			if(list.get(i).longValue()>list.get(i+1).longValue()){
+			if(list.get(i).compareTo(list.get(i+1)) > 0){
 				max = list.get(i);
 			}
 		}
@@ -92,5 +92,7 @@ public class Util {
 		}
 
 		System.out.println("Max = "+util.findMax(integers));
+
+		System.out.println("Count is " + util.countEvenNumbers(Arrays.asList(4.1, 4.2, 4.3)));
  	}
 }
