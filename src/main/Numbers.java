@@ -24,8 +24,7 @@ public class Numbers<T extends Number> {
      * This method sets list 1's element with an index corresponding to index parameter
      * to a value of an element of list 2 with the same index preventing the reverse operation.
      * */
-    public void setValue(List<T> list1, List<T> list2, int index) {
-        list2 = Collections.unmodifiableList(list2);
+    public void setValue(List<? super T> list1, List<? extends T> list2, int index) {
         list1.set(index, list2.get(index));
     }
 
