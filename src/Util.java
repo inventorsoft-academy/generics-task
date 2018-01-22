@@ -22,8 +22,9 @@ public class Util {
 	 * in the first collection with corresponding element from the second one,
 	 * without possibility to do vice versa;
 	 */
-	public <T> void replaceElement(List<T> list1, List<T> list2, int index){
+	public <T> void replaceElement(List<? super T> list1, List<T> list2, int index){
 		list1.set(index, list2.get(index));
+		//list2.set(index, list1.get(index));
 	}
 
 	/**
@@ -44,10 +45,14 @@ public class Util {
 	 * @return maximum element of list
 	 */
 	public <T extends Comparable<T>> T findMax(List<T> list){
-		T max = list.get(0);
-		for(int i=1; i<list.size()-1; i++){
-			if(list.get(i).compareTo(list.get(i+1)) > 0){
-				max = list.get(i);
+		T max = null;
+		if(list.size()!=0){
+			max = list.get(0);
+
+			for(int i=1; i<list.size()-1; i++){
+				if(list.get(i).compareTo(list.get(i+1)) > 0){
+					max = list.get(i);
+				}
 			}
 		}
 		return max;
