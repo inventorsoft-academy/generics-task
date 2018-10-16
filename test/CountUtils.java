@@ -21,7 +21,7 @@ public class CountUtils {
            }
 
         }
-        System.out.println(sum); 
+        System.out.println(sum);
 
     }
     /*public static int sum(List<Integer> even){
