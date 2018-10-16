@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 
 public class Main {
@@ -16,14 +15,12 @@ public class Main {
     //utility method, which counts even numbers in given collection
     public static <T extends Number> void countingEvenNumber(List<T> list){
         int count = 0;
-        System.out.print("Even numbers - ");
         for(T t : list){
             if(t.intValue() % 2 == 0){
-                count = count + t.intValue();
-                System.out.print(t +" ");
+                count++;
             }
         }
-        System.out.println("Summ of even numbers = " + count);
+        System.out.println("Quantity of even numbers is = " + count);
     }
     //utility method, which takes two lists and index and replaces element at given position in the first collection
     // with corresponding element from the second one, without possibility to do vice versa;
@@ -40,7 +37,7 @@ public class Main {
         list2.set(index, tempList1);
     }
     //utility method, which finds maximum element in the given list
-    public static <T extends Comparable> void findMax(List<T> list){
+    public static <T extends Comparable<T>> void findMax(List<T> list){
         T max = list.get(0);
         for(T t : list){
             if(t.compareTo(max) > 0){
