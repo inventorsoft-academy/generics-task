@@ -24,16 +24,7 @@ public class CountUtils {
         System.out.println(sum);
 
     }
-    /*public static int sum(List<Integer> even){
-        if(even==null || even.size()<1)
-            return 0;
 
-        int sum = 0;
-        for(Integer i: even)
-            sum = sum+i;
-
-        System.out.println(sum);
-        return sum;*/
     }
 
 

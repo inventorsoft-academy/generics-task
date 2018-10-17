@@ -19,4 +19,5 @@ class Cat extends Animal {
     public void echo() {
         System.out.println("Meow!");
     }
+
 }
