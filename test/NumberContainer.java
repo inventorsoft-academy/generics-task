@@ -19,5 +19,5 @@ public class NumberContainer {
     public void setListOfIntegers(List<Integer> listOfIntegers) {
         this.listOfIntegers = listOfIntegers;
     }
-    
+
 } 
