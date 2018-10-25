@@ -16,38 +16,67 @@ public class Main {
 
     public static void main(String[] args) {
 
-        List<Cat> cats = new ArrayList<>();
-        cats.add(new Cat());
-        cats.add(new Cat());
 
-        GenericTest.useAnimals(cats);
+//1
+        AnyTypeContainer container = new AnyTypeContainer(new ArrayList<>(Arrays.asList(1, 0.5, 300, 16.7f, 500l)));
+        container.showFooContainer();
+        System.out.println(container.getElemByIndex(0));
+//2
+        SingleNumberContainer<Double> doubleNumber = new SingleNumberContainer<>(0.7);
+        doubleNumber.showFoo();
 
-        List<Animal> animals = new ArrayList<>();
-        animals.add(new Animal());
-        animals.add(new Cat());
-
-        GenericTest.useAnimals(animals);
-
-
-        NumberContainer data = new NumberContainer();
-        data.setListOfIntegers(new ArrayList<>(Arrays.<Integer>asList(1, 2, 3, 4, 5)));
-        data.ShowFoo();
-        CountUtils.count(data.getListOfIntegers());
-
-
-        ListUtils.swapElemWithImmutable(new ArrayList<>(Arrays.asList(10, 20, 30, 40, 50)), new ArrayList<Integer>(Arrays.asList(11, 22, 33, 44, 55)), 1);
+//3
+        List<Integer> listOfIntegers = Arrays.asList(1, 2, 3, 4, 5);
+        CountUtils.countEvenFooElements(listOfIntegers);
+//4
+        /*ListUtils.swapElemWithImmutable(new ArrayList<>(Arrays.asList(10, 20, 30, 40, 50)), new ArrayList<Integer>(Arrays.asList(11, 22, 33, 44, 55)), 1);
         ListUtils.swapElem(new ArrayList<>(Arrays.asList(100, 200, 300, 400, 500)), new ArrayList<Integer>(Arrays.asList(111, 222, 333, 444, 555)), 2);
 
         List<Integer> listOfIntegers = Arrays.asList(1, 2, 3, 4, 5);
-        System.out.println(Collections.max(listOfIntegers));
+        System.out.println(Collections.max(listOfIntegers));*/
 
-        /*List<User> list = Arrays.asList(new User("Adam", "Smith"), new User("Bill", "Murray"));
-        Comparator<User> firstNameComparator = (first, last) -> first.firstname.compareTo(last.firstname);
-        Comparator<User> lastNameComparator = (first, last) -> first.lastname.compareTo(last.lastname);
+        List<Integer> list1 = new ArrayList<>(Arrays.asList(100, 30, 50, 20, 70));
+        List<Integer> list2 = new ArrayList<>(Arrays.asList(25, 75, 92, 185, 35));
+
+        ListUtils.replaceFooUnmod(list1, list2, 3);
+        System.out.println(list1);
+//5
+        List<Integer> list11 = new ArrayList<>(Arrays.asList(1100, 330, 550, 220, 770));
+        List<Integer> list22 = new ArrayList<>(Arrays.asList(225, 775, 992, 1185, 335));
+
+        ListUtils.switchFooElems(list11, list22, 3);
+
+        System.out.println(list1);
+        System.out.println(list2);
+
+//6
+        Comparator<Integer> comp = new Comparator<Integer>() {
+            public int compare(Integer d1, Integer d2) {
+                return d1.compareTo(d2);
+            }
+        };
+
+        List<Integer> list = new ArrayList<>(Arrays.asList(30, 75, 92, 185, 15));
+        int max = MaxUtils.findMaxFoo(list, comp);
+
+        System.out.println("Max value = " + max);
+
+//Getting max elem by field
+        List<Worker> workers = new ArrayList<>();
+        workers.add(new Worker("John", 30, 2000));
+        workers.add(new Worker("Bruce", 31, 3000));
+        workers.add(new Worker("Lee", 32, 4000));
+
+        Worker w = workers.stream()
+                .max((w1, w2) -> Integer.compare(w1.getAge(), w2.getAge()))
+                .get();
+        w.showFoo();
+
+        workers.stream()
+                .reduce((w1, w2) -> w1.getSalary() > w2.getSalary() ? w1 : w2)
+                .ifPresent(System.out::println);
 
 
-        Collections.sort(list, lastNameComparator.thenComparing(firstNameComparator));
-        System.out.println(list);*/
     }
 }
 
